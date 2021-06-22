@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const port = 3000
 
 const app = express();
-app.use(morgan('common'));
+// app.use(morgan('common'));
 
 const users = []
 
@@ -39,8 +39,8 @@ app.get('/', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-	console.log("-----")
-	console.log("successfully fetched a user list!");
+	// console.log("-----")
+	// console.log("successfully fetched a user list!");
 	users.push('Michael')
 	users.push('Gob')
 	users.push('Lucille')
