@@ -4,9 +4,8 @@ const port = 3000
 
 const app = express();
 app.use(morgan('common'));
-app.use(morgan('tiny'));
 
-const users = [{user: 'Michael'}, {user:'Gob'},{ user: 'Lucille'}, {user: 'George'}]
+const users = []
 
 // const users = [{
 // 	// id: 1,
@@ -42,8 +41,12 @@ app.get('/', (req, res) => {
 app.get('/users', (req, res) => {
 	console.log("-----")
 	console.log("successfully fetched a user list!");
+	users.push('Michael')
+	users.push('Gob')
+	users.push('Lucille')
+	users.push('George')
 	console.log(users)
-	res.send(users);
+	res.json(users);
 })
 
 app.listen(port, err => {
