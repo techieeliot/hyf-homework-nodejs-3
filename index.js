@@ -1,6 +1,10 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const morgan = require('morgan');
 const port = 3000
+
+const app = express();
+app.use(morgan('common'));
+app.use(morgan('tiny'));
 
 const users = [{
 	id: 1,
@@ -27,17 +31,15 @@ const users = [{
 	name: 'George Bluth'
 }]
 
-app.use('/', function(req, res, next){
-	res.json({title: "GeeksforGeeks"})
-	next();
-    })
-
 app.get('/', (req, res) => {
+	console.log("-----")
+	console.log("successfully fetched the landing page.")
 	res.send('Hello World!')
 })
 
 app.get('/users', (req, res) => {
-	console.log("GET Users List")
+	console.log("-----")
+	console.log("successfully fetched a user list!")
 	res.json(users)
 })
 
