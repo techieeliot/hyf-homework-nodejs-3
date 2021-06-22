@@ -6,7 +6,7 @@ const app = express();
 app.use(morgan('common'));
 app.use(morgan('tiny'));
 
-const users = ['Michael', 'Gob', 'Lucille', 'George']
+const users = [{user: 'Michael'}, {user:'Gob'},{ user: 'Lucille'}, {user: 'George'}]
 
 // const users = [{
 // 	// id: 1,
