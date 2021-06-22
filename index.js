@@ -7,6 +7,7 @@ app.use(morgan('common'));
 app.use(morgan('tiny'));
 
 const users = ['Michael', 'Gob', 'Lucille', 'George']
+
 // const users = [{
 // 	// id: 1,
 // 	name: 'Micheal Bluth'
@@ -40,8 +41,9 @@ app.get('/', (req, res) => {
 
 app.get('/users', (req, res) => {
 	console.log("-----")
-	console.log("successfully fetched a user list!")
-	res.send(users)
+	console.log("successfully fetched a user list!");
+	console.log(users)
+	res.send(users);
 })
 
 app.listen(port, err => {
