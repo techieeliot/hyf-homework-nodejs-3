@@ -6,30 +6,31 @@ const app = express();
 app.use(morgan('common'));
 app.use(morgan('tiny'));
 
-const users = [{
-	id: 1,
-	name: 'Micheal Bluth'
-},
-{
-	id: 2,
-	name: 'Gob Bluth'
-},
-{
-	id: 3,
-	name: 'Lucille Bluth'
-},
-{
-	id: 4,
-	name: 'Lindsay Bluth Fünke'
-},
-{
-	id: 5,
-	name: 'Tobia Fünke'
-},
-{
-	id: 6,
-	name: 'George Bluth'
-}]
+const users = ['Michael', 'Gob', 'Lucille', 'George']
+// const users = [{
+// 	// id: 1,
+// 	name: 'Micheal Bluth'
+// },
+// {
+// 	// id: 2,
+// 	name: 'Gob Bluth'
+// },
+// {
+// 	// id: 3,
+// 	name: 'Lucille Bluth'
+// },
+// {
+// 	// id: 4,
+// 	name: 'Lindsay Bluth Fünke'
+// },
+// {
+// 	// id: 5,
+// 	name: 'Tobia Fünke'
+// },
+// {
+// 	// id: 6,
+// 	name: 'George Bluth'
+// }]
 
 app.get('/', (req, res) => {
 	console.log("-----")
@@ -40,7 +41,7 @@ app.get('/', (req, res) => {
 app.get('/users', (req, res) => {
 	console.log("-----")
 	console.log("successfully fetched a user list!")
-	res.json(users)
+	res.send(users)
 })
 
 app.listen(port, err => {
