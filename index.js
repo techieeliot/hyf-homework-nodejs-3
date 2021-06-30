@@ -1,11 +1,26 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const morgan = require('morgan');
 const port = 3000
 
+const app = express();
+app.use(morgan('common'));
+
+const users = [{user: 'Michael'}, {user:'Gob'},{ user: 'Lucille'}, {user: 'George'}]
+
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+	console.log("-----")
+	console.log("successfully fetched the landing page.")
+	res.send('Hello World!')
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+app.get('/users', (req, res) => {
+	console.log("-----")
+	console.log("successfully fetched a user list!");
+	console.log(users)
+	res.send([]);
+})
+
+app.listen(port, err => {
+	if (err) console.log(err);
+	console.log(`Example app listening at http://localhost:${port}`)
 })
