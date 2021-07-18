@@ -34,6 +34,16 @@ app.get('/users/:id', (req, res) => {
 	res.send(req.params);
 })
 
+app.delete('/users/:id', (req, res) => {
+	console.log('loading id...');
+	console.log('params:', req.params);
+	if (users[req.params.id]) {
+		res.send(users[req.params.id]);
+	} else {
+		res.status(204).send()
+	}
+})
+
 app.listen(port, err => {
 	if (err) console.log(err);
 	console.log(`Example app listening at http://localhost:${port}`)
